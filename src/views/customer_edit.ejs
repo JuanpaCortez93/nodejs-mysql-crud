@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <form action="/update/<%= data.id %>" method="post">
+                <div class="card">
+                    <div class="card-header">Please, insert your data here</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" name="name" value="<%= data.name %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="address" value="<%= data.address %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="phone" value="<%= data.phone %>" class="form-control">
+                        </div>
+
+                        <div class="row form-group">
+                            <button type="submit" class="btn btn-primary mt-3">Submit data</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(data){ %>
+                            <% for(let i=0; i<data.length; i++){ %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td><%= data[i].name %></td>
+                                    <td><%= data[i].address %></td>
+                                    <td><%= data[i].phone %></td>
+                                    <td>
+                                        <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                                        <a href="/update/<%= data[i].id %>" class="btn btn-info">Update</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <form action="/add" method="post">
+                    <div class="card">
+                        <div class="card-header">Please, insert your data here</div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Insert your name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="address" placeholder="Insert your address" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="phone" placeholder="Insert your phone" class="form-control">
+                            </div>
+
+                            <div class="row form-group">
+                                <button type="submit" class="btn btn-primary mt-3">Submit data</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%- include('partials/footer.ejs') %>
